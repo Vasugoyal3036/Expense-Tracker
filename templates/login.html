@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="auth-logo">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <h1>Welcome Back</h1>
+            <p>Sign in to continue to ExpenseFlow</p>
+        </div>
+
+        <form action="{{ url_for('login') }}" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                    Username
+                </label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required
+                    autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    Password
+                </label>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required
+                        autocomplete="current-password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-glow">
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Create one</a></p>
+        </div>
+
+        <div class="auth-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+        </div>
+    </div>
+
+    <div class="auth-features">
+        <h2>Track Your Expenses</h2>
+        <ul class="feature-list">
+            <li>
+                <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                <div class="feature-text">
+                    <h3>Visual Analytics</h3>
+                    <p>Beautiful charts to visualize your spending patterns</p>
+                </div>
+            </li>
+            <li>
+                <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                <div class="feature-text">
+                    <h3>Smart Categories</h3>
+                    <p>Organize expenses with intuitive categories</p>
+                </div>
+            </li>
+            <li>
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-text">
+                    <h3>Secure & Private</h3>
+                    <p>Your financial data stays safe and protected</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const icon = input.nextElementSibling.querySelector('i');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+</script>
+{% endblock %}
