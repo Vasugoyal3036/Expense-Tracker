@@ -5,6 +5,7 @@ A beautiful, modern personal expense tracking application built with Flask.
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Youtube Video Link](https://youtu.be/W3iEqb1BVJg)
 
 ## ✨ Features
 
